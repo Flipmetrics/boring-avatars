@@ -36,6 +36,14 @@ function generateData(name, colors) {
 
 const AvatarBeam = (props) => {
   const data = generateData(props.name, props.colors);
+  
+  if (props.colorCallback) {
+    props.colorCallback({
+      wrapperColor: data.wrapperColor,
+      faceColor: data.faceColor,
+      backgroundColor: data.backgroundColor
+    });
+  }
 
   return (
     <svg
